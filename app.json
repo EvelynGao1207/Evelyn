@@ -22,20 +22,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "前沿资讯",
-        "iconPath": "images/news.svg",
-        "selectedIconPath": "images/news-active.svg"
+        "iconPath": "images/news.png",
+        "selectedIconPath": "images/news-active.png"
       },
       {
         "pagePath": "pages/knowledge/knowledge",
         "text": "知识库",
-        "iconPath": "images/book.svg",
-        "selectedIconPath": "images/book-active.svg"
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book-active.png"
       },
       {
         "pagePath": "pages/translate/translate",
         "text": "翻译",
-        "iconPath": "images/translate.svg",
-        "selectedIconPath": "images/translate-active.svg"
+        "iconPath": "images/translate.png",
+        "selectedIconPath": "images/translate-active.png"
       }
     ]
   },
