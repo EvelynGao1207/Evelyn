@@ -1,0 +1,162 @@
+.welcome-page {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(160deg, #1A3C2A 0%, #2D9A5D 40%, #3FC97A 70%, #A8E6CF 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative neural network-inspired shapes */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.bg-circle-1 {
+  width: 500rpx;
+  height: 500rpx;
+  background: rgba(255, 255, 255, 0.06);
+  top: -100rpx;
+  right: -120rpx;
+}
+
+.bg-circle-2 {
+  width: 350rpx;
+  height: 350rpx;
+  background: rgba(255, 255, 255, 0.04);
+  top: 200rpx;
+  left: -80rpx;
+}
+
+.bg-circle-3 {
+  width: 240rpx;
+  height: 240rpx;
+  background: rgba(168, 230, 207, 0.15);
+  bottom: 300rpx;
+  right: 40rpx;
+}
+
+.bg-circle-4 {
+  width: 180rpx;
+  height: 180rpx;
+  background: rgba(255, 255, 255, 0.08);
+  bottom: 180rpx;
+  left: 60rpx;
+}
+
+.bg-circle-5 {
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(245, 166, 35, 0.12);
+  top: 350rpx;
+  right: 100rpx;
+}
+
+/* Small dots - like neural nodes */
+.bg-dot {
+  width: 16rpx;
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bg-dot-1 { top: 180rpx; left: 150rpx; }
+.bg-dot-2 { top: 320rpx; right: 200rpx; }
+.bg-dot-3 { bottom: 450rpx; left: 200rpx; }
+.bg-dot-4 { top: 500rpx; left: 80rpx; }
+.bg-dot-5 { bottom: 350rpx; right: 150rpx; }
+.bg-dot-6 { top: 250rpx; left: 350rpx; }
+
+/* Lines - like neural connections */
+.bg-line {
+  border-radius: 4rpx;
+}
+
+.bg-line-1 {
+  width: 200rpx;
+  height: 3rpx;
+  background: rgba(255, 255, 255, 0.1);
+  top: 300rpx;
+  left: 100rpx;
+  transform: rotate(30deg);
+}
+
+.bg-line-2 {
+  width: 160rpx;
+  height: 3rpx;
+  background: rgba(255, 255, 255, 0.08);
+  bottom: 400rpx;
+  right: 80rpx;
+  transform: rotate(-20deg);
+}
+
+.bg-line-3 {
+  width: 120rpx;
+  height: 3rpx;
+  background: rgba(255, 255, 255, 0.06);
+  top: 450rpx;
+  left: 250rpx;
+  transform: rotate(60deg);
+}
+
+/* Main content */
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.welcome-brain {
+  font-size: 140rpx;
+  margin-bottom: 40rpx;
+}
+
+.welcome-title {
+  font-size: 96rpx;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 12rpx;
+  text-shadow: 0 6rpx 30rpx rgba(0, 0, 0, 0.15);
+}
+
+.welcome-title-en {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 8rpx;
+  margin-top: 8rpx;
+}
+
+.welcome-subtitle {
+  font-size: 30rpx;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 32rpx;
+  letter-spacing: 6rpx;
+  font-weight: 500;
+}
+
+/* Enter button */
+.welcome-bottom {
+  position: absolute;
+  bottom: 160rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.enter-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1A3C2A;
+  font-size: 32rpx;
+  font-weight: 800;
+  padding: 28rpx 100rpx;
+  border-radius: 50rpx;
+  letter-spacing: 4rpx;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.15);
+}

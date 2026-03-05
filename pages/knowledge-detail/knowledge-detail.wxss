@@ -107,6 +107,40 @@
   text-align: justify;
 }
 
+.section-paragraph.has-translation {
+  color: #1A3C2A;
+  font-weight: 600;
+}
+
+/* Translate hint */
+.translate-hint-bar {
+  font-size: 22rpx;
+  color: #A0C4AD;
+  font-weight: 500;
+  margin-bottom: 24rpx;
+  padding: 10rpx 20rpx;
+  background: #F0F7F2;
+  border-radius: 12rpx;
+  text-align: center;
+}
+
+/* Inline translation */
+.inline-translation {
+  background: #F0F7F2;
+  border-left: 4rpx solid #2D9A5D;
+  border-radius: 0 12rpx 12rpx 0;
+  padding: 16rpx 20rpx;
+  margin-bottom: 20rpx;
+  margin-top: -8rpx;
+}
+
+.inline-translation-text {
+  font-size: 28rpx;
+  color: #2D9A5D;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
 /* Key terms - green accent */
 .key-terms {
   background: #F0F7F2;

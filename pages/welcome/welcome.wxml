@@ -1,0 +1,30 @@
+<view class="welcome-page">
+  <!-- Decorative background shapes -->
+  <view class="bg-shape bg-circle-1"></view>
+  <view class="bg-shape bg-circle-2"></view>
+  <view class="bg-shape bg-circle-3"></view>
+  <view class="bg-shape bg-circle-4"></view>
+  <view class="bg-shape bg-circle-5"></view>
+  <view class="bg-shape bg-dot bg-dot-1"></view>
+  <view class="bg-shape bg-dot bg-dot-2"></view>
+  <view class="bg-shape bg-dot bg-dot-3"></view>
+  <view class="bg-shape bg-dot bg-dot-4"></view>
+  <view class="bg-shape bg-dot bg-dot-5"></view>
+  <view class="bg-shape bg-dot bg-dot-6"></view>
+  <view class="bg-shape bg-line bg-line-1"></view>
+  <view class="bg-shape bg-line bg-line-2"></view>
+  <view class="bg-shape bg-line bg-line-3"></view>
+
+  <!-- Main content -->
+  <view class="welcome-content">
+    <view class="welcome-brain">🧠</view>
+    <view class="welcome-title">瞬见</view>
+    <view class="welcome-title-en">NeuroScope</view>
+    <view class="welcome-subtitle">瞬息之间，洞见大脑前沿</view>
+  </view>
+
+  <!-- Enter button -->
+  <view class="welcome-bottom">
+    <view class="enter-btn" bindtap="onEnter">探索更多</view>
+  </view>
+</view>

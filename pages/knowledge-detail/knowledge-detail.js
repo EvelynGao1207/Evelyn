@@ -1,11 +1,12 @@
-const { getKnowledgeDetail } = require('../../utils/api');
+const { getKnowledgeDetail, translateText } = require('../../utils/api');
 
 Page({
   data: {
     article: null,
     loading: true,
     quizAnswers: {},
-    readingProgress: 0
+    readingProgress: 0,
+    sectionTranslations: {}
   },
 
   onLoad(options) {
@@ -15,7 +16,6 @@ Page({
   },
 
   onPageScroll(e) {
-    // Update reading progress based on scroll position
     wx.createSelectorQuery().select('.content-sections').boundingClientRect(rect => {
       if (!rect) return;
       const scrolled = Math.min(100, Math.max(0, Math.round((e.scrollTop / (rect.height - 500)) * 100)));
@@ -45,6 +45,24 @@ Page({
     const { question, option } = e.currentTarget.dataset;
     if (this.data.quizAnswers[question] !== undefined) return;
     this.setData({ [`quizAnswers[${question}]`]: option });
+  },
+
+  async onLongPressParagraph(e) {
+    const { section, para } = e.currentTarget.dataset;
+    const key = `${section}-${para}`;
+    if (this.data.sectionTranslations[key]) {
+      this.setData({ [`sectionTranslations[${key}]`]: '' });
+      return;
+    }
+    const text = this.data.article.sections[section].paragraphs[para];
+    wx.showLoading({ title: '翻译中...' });
+    try {
+      const res = await translateText(text);
+      this.setData({ [`sectionTranslations[${key}]`]: res.translatedText });
+    } catch (err) {
+      wx.showToast({ title: '翻译失败', icon: 'none' });
+    }
+    wx.hideLoading();
   },
 
   getDemoArticle(id) {

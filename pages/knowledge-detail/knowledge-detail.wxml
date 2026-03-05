@@ -9,6 +9,9 @@
     <!-- Title -->
     <view class="detail-title">{{article.title}}</view>
 
+    <!-- Translate hint -->
+    <view class="translate-hint-bar">长按英文术语或段落可即时翻译</view>
+
     <!-- Table of contents -->
     <view class="toc" wx:if="{{article.sections && article.sections.length > 0}}">
       <view class="toc-title">目录</view>
@@ -34,8 +37,14 @@
       >
         <view class="section-heading">{{item.heading}}</view>
         <view class="section-body">
-          <block wx:for="{{item.paragraphs}}" wx:for-item="para" wx:key="pIndex">
-            <view class="section-paragraph">{{para}}</view>
+          <block wx:for="{{item.paragraphs}}" wx:for-item="para" wx:for-index="pIndex" wx:key="pIndex">
+            <view class="section-paragraph {{sectionTranslations[index + '-' + pIndex] ? 'has-translation' : ''}}"
+                  bindlongpress="onLongPressParagraph"
+                  data-section="{{index}}"
+                  data-para="{{pIndex}}">{{para}}</view>
+            <view class="inline-translation" wx:if="{{sectionTranslations[index + '-' + pIndex]}}">
+              <view class="inline-translation-text">{{sectionTranslations[index + '-' + pIndex]}}</view>
+            </view>
           </block>
         </view>
         <!-- Key terms -->

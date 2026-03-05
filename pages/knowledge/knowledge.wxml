@@ -1,7 +1,7 @@
 <view class="container">
   <view class="header">
     <view class="header-title">知识库</view>
-    <view class="header-subtitle">神经科学 & 认知心理学基础知识</view>
+    <view class="header-subtitle">神经科学 & 认知心理学</view>
   </view>
 
   <!-- Search bar -->
@@ -15,22 +15,21 @@
     />
   </view>
 
-  <!-- Knowledge categories -->
-  <view class="knowledge-categories" wx:if="{{!searchText}}">
+  <!-- Category grid (Pryme-style) -->
+  <view class="category-grid" wx:if="{{!currentCategoryName && !searchText}}">
     <view
-      class="knowledge-category-card card"
+      class="category-card"
       wx:for="{{knowledgeCategories}}"
       wx:key="id"
       bindtap="onCategoryTap"
       data-id="{{item.id}}"
+      style="background: {{item.bgColor}}"
     >
-      <view class="kc-icon" style="background:{{item.color}}">{{item.icon}}</view>
-      <view class="kc-info">
-        <view class="kc-name">{{item.name}}</view>
-        <view class="kc-desc">{{item.description}}</view>
-        <view class="kc-count">{{item.count}} 篇文章</view>
+      <view class="category-icon-wrap" style="background: {{item.iconBg}}">
+        <view class="category-icon">{{item.icon}}</view>
       </view>
-      <view class="kc-arrow">></view>
+      <view class="category-name">{{item.name}}</view>
+      <view class="category-count">{{item.count}} 篇</view>
     </view>
   </view>
 
@@ -39,7 +38,7 @@
     <view class="list-header">
       <view class="list-title" wx:if="{{currentCategoryName}}">{{currentCategoryName}}</view>
       <view class="list-title" wx:if="{{searchText}}">搜索: {{searchText}}</view>
-      <view class="list-back" bindtap="onBackToCategories" wx:if="{{currentCategoryName}}">返回分类</view>
+      <view class="list-back" bindtap="onBackToCategories" wx:if="{{currentCategoryName}}">返回</view>
     </view>
 
     <view

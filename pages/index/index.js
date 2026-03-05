@@ -3,19 +3,25 @@ const { formatRelativeTime, getToday } = require('../../utils/date');
 const app = getApp();
 
 const categoryClassMap = {
-  neuroscience: 'neuro',
-  cognitive: 'cognitive',
-  neuroimaging: 'imaging',
-  computational: 'computational',
-  clinical: 'clinical'
+  'molecular-cellular': 'neuro',
+  'circuits-systems': 'cognitive',
+  'cognition-behavior': 'imaging',
+  'development-plasticity': 'neuro',
+  'emotion-social': 'clinical',
+  'computation': 'computational',
+  'disorders-clinical': 'clinical',
+  'imaging-methods': 'imaging'
 };
 
 const categoryNameMap = {
-  neuroscience: '神经科学',
-  cognitive: '认知心理学',
-  neuroimaging: '脑成像',
-  computational: '计算神经科学',
-  clinical: '临床神经'
+  'molecular-cellular': '分子与细胞',
+  'circuits-systems': '环路与系统',
+  'cognition-behavior': '认知与行为',
+  'development-plasticity': '发育与可塑性',
+  'emotion-social': '情绪与社会脑',
+  'computation': '计算神经科学',
+  'disorders-clinical': '脑疾病与临床',
+  'imaging-methods': '成像与技术'
 };
 
 Page({
@@ -116,10 +122,10 @@ Page({
         summary: 'Researchers at MIT discovered a new population of neurons in the prefrontal cortex that encode abstract task rules, enabling rapid behavioral flexibility in primates.',
         source: 'Nature Neuroscience',
         publishTime: new Date().toISOString(),
-        category: 'neuroscience',
+        category: 'molecular-cellular',
         relativeTime: '2小时前',
         categoryClass: 'neuro',
-        categoryName: '神经科学',
+        categoryName: '分子与细胞',
         translated: false, translatedTitle: '', translatedSummary: ''
       },
       {
@@ -128,10 +134,10 @@ Page({
         summary: 'A new study using MEG shows that individual differences in working memory capacity correlate with the power and frequency of theta-gamma coupling in parietal cortex.',
         source: 'Cerebral Cortex',
         publishTime: new Date(Date.now() - 7200000).toISOString(),
-        category: 'cognitive',
+        category: 'cognition-behavior',
         relativeTime: '4小时前',
-        categoryClass: 'cognitive',
-        categoryName: '认知心理学',
+        categoryClass: 'imaging',
+        categoryName: '认知与行为',
         translated: false, translatedTitle: '', translatedSummary: ''
       },
       {
@@ -140,10 +146,10 @@ Page({
         summary: 'Scientists have developed a new ultra-high resolution fMRI method capable of detecting neural activity at columnar and laminar scales in awake humans.',
         source: 'Science',
         publishTime: new Date(Date.now() - 18000000).toISOString(),
-        category: 'neuroimaging',
+        category: 'imaging-methods',
         relativeTime: '5小时前',
         categoryClass: 'imaging',
-        categoryName: '脑成像',
+        categoryName: '成像与技术',
         translated: false, translatedTitle: '', translatedSummary: ''
       },
       {
@@ -152,7 +158,7 @@ Page({
         summary: 'A transformer-based model trained on longitudinal EEG data achieves 92% accuracy in predicting cognitive decline trajectory in early-stage Alzheimer patients.',
         source: 'NeuroImage: Clinical',
         publishTime: new Date(Date.now() - 36000000).toISOString(),
-        category: 'computational',
+        category: 'computation',
         relativeTime: '10小时前',
         categoryClass: 'computational',
         categoryName: '计算神经科学',
@@ -164,10 +170,10 @@ Page({
         summary: 'Researchers found that 30-minute nature exposure significantly reduces default mode network activity and enhances top-down attentional control, providing neural basis for attention restoration theory.',
         source: 'PNAS',
         publishTime: new Date(Date.now() - 86400000).toISOString(),
-        category: 'cognitive',
+        category: 'emotion-social',
         relativeTime: '1天前',
-        categoryClass: 'cognitive',
-        categoryName: '认知心理学',
+        categoryClass: 'clinical',
+        categoryName: '情绪与社会脑',
         translated: false, translatedTitle: '', translatedSummary: ''
       }
     ];

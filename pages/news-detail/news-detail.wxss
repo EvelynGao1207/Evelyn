@@ -72,6 +72,16 @@
   border: 2rpx solid #D4E8DA;
 }
 
+.translate-hint {
+  display: inline-block;
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: #A0C4AD;
+  font-weight: 500;
+  line-height: 60rpx;
+  vertical-align: middle;
+}
+
 /* Content */
 .content-paragraph {
   font-size: 30rpx;
@@ -79,6 +89,28 @@
   line-height: 2;
   margin-bottom: 24rpx;
   text-align: justify;
+}
+
+.content-paragraph.has-translation {
+  color: #1A3C2A;
+  font-weight: 600;
+}
+
+/* Inline translation */
+.inline-translation {
+  background: #F0F7F2;
+  border-left: 4rpx solid #2D9A5D;
+  border-radius: 0 12rpx 12rpx 0;
+  padding: 16rpx 20rpx;
+  margin-bottom: 24rpx;
+  margin-top: -12rpx;
+}
+
+.inline-translation-text {
+  font-size: 28rpx;
+  color: #2D9A5D;
+  line-height: 1.8;
+  font-weight: 500;
 }
 
 /* Key findings */

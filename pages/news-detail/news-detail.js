@@ -2,19 +2,25 @@ const { getNewsDetail, translateText } = require('../../utils/api');
 const { formatDate } = require('../../utils/date');
 
 const categoryClassMap = {
-  neuroscience: 'neuro',
-  cognitive: 'cognitive',
-  neuroimaging: 'imaging',
-  computational: 'computational',
-  clinical: 'clinical'
+  'molecular-cellular': 'neuro',
+  'circuits-systems': 'cognitive',
+  'cognition-behavior': 'imaging',
+  'development-plasticity': 'neuro',
+  'emotion-social': 'clinical',
+  'computation': 'computational',
+  'disorders-clinical': 'clinical',
+  'imaging-methods': 'imaging'
 };
 
 const categoryNameMap = {
-  neuroscience: '神经科学',
-  cognitive: '认知心理学',
-  neuroimaging: '脑成像',
-  computational: '计算神经科学',
-  clinical: '临床神经'
+  'molecular-cellular': '分子与细胞',
+  'circuits-systems': '环路与系统',
+  'cognition-behavior': '认知与行为',
+  'development-plasticity': '发育与可塑性',
+  'emotion-social': '情绪与社会脑',
+  'computation': '计算神经科学',
+  'disorders-clinical': '脑疾病与临床',
+  'imaging-methods': '成像与技术'
 };
 
 Page({
@@ -24,7 +30,8 @@ Page({
     isTranslating: false,
     isTranslated: false,
     translatedTitle: '',
-    translatedParagraphs: []
+    translatedParagraphs: [],
+    paragraphTranslations: {}
   },
 
   onLoad(options) {
@@ -104,6 +111,35 @@ Page({
     this.setData({ isTranslating: false });
   },
 
+  async onLongPressTitle() {
+    if (this.data.translatedTitle) return;
+    wx.showLoading({ title: '翻译中...' });
+    try {
+      const res = await translateText(this.data.article.title);
+      this.setData({ translatedTitle: res.translatedText });
+    } catch (err) {
+      wx.showToast({ title: '翻译失败', icon: 'none' });
+    }
+    wx.hideLoading();
+  },
+
+  async onLongPressParagraph(e) {
+    const index = e.currentTarget.dataset.index;
+    if (this.data.paragraphTranslations[index]) {
+      this.setData({ [`paragraphTranslations[${index}]`]: '' });
+      return;
+    }
+    const text = this.data.article.contentParagraphs[index];
+    wx.showLoading({ title: '翻译中...' });
+    try {
+      const res = await translateText(text);
+      this.setData({ [`paragraphTranslations[${index}]`]: res.translatedText });
+    } catch (err) {
+      wx.showToast({ title: '翻译失败', icon: 'none' });
+    }
+    wx.hideLoading();
+  },
+
   onCopyLink() {
     if (!this.data.article.url) return;
     wx.setClipboardData({
@@ -115,7 +151,7 @@ Page({
   onShareAppMessage() {
     const article = this.data.article;
     return {
-      title: article ? article.title : 'NeuroScope - 神经科学前沿',
+      title: article ? article.title : '瞬见NeuroScope - 神经科学前沿',
       path: `/pages/news-detail/news-detail?id=${article._id}`
     };
   }

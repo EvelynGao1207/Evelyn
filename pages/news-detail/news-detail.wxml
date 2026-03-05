@@ -7,7 +7,7 @@
     </view>
 
     <!-- Title -->
-    <view class="detail-title">{{article.title}}</view>
+    <view class="detail-title" bindlongpress="onLongPressTitle">{{article.title}}</view>
 
     <!-- Translated title -->
     <view class="detail-translated-title" wx:if="{{translatedTitle}}">{{translatedTitle}}</view>
@@ -15,21 +15,27 @@
     <!-- Tags -->
     <view class="detail-tags">
       <view class="tag tag-{{article.categoryClass}}">{{article.categoryName}}</view>
-      <view class="tag" wx:for="{{article.tags}}" wx:key="*this" style="background:#f0f0f0;color:#666;">{{item}}</view>
+      <view class="tag" wx:for="{{article.tags}}" wx:key="*this" style="background:#F0F7F2;color:#5A7D66;">{{item}}</view>
     </view>
 
-    <!-- Translate button -->
+    <!-- Translate all button -->
     <view class="translate-bar">
       <view class="translate-btn {{isTranslated ? 'translated' : ''}}" bindtap="onTranslateAll">
         {{isTranslating ? '翻译中...' : (isTranslated ? '查看原文' : '翻译全文')}}
       </view>
+      <view class="translate-hint">长按段落可单独翻译</view>
     </view>
 
     <!-- Content -->
     <view class="detail-content">
       <view wx:if="{{!isTranslated}}">
         <block wx:for="{{article.contentParagraphs}}" wx:key="index">
-          <view class="content-paragraph">{{item}}</view>
+          <view class="content-paragraph {{paragraphTranslations[index] ? 'has-translation' : ''}}"
+                bindlongpress="onLongPressParagraph"
+                data-index="{{index}}">{{item}}</view>
+          <view class="inline-translation" wx:if="{{paragraphTranslations[index]}}">
+            <view class="inline-translation-text">{{paragraphTranslations[index]}}</view>
+          </view>
         </block>
       </view>
       <view wx:else>

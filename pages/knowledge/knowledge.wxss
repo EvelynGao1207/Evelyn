@@ -31,58 +31,50 @@
   box-shadow: 0 2rpx 12rpx rgba(45, 154, 93, 0.06);
 }
 
-/* Category cards - vibrant colored left borders */
-.knowledge-category-card {
+/* Category grid - Pryme style */
+.category-grid {
   display: flex;
-  align-items: center;
-  padding: 28rpx;
-  border-left: 6rpx solid #2D9A5D;
+  flex-wrap: wrap;
+  gap: 20rpx;
 }
 
-.kc-icon {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: 24rpx;
+.category-card {
+  width: calc(50% - 10rpx);
+  border-radius: 28rpx;
+  padding: 32rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+
+.category-icon-wrap {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 44rpx;
-  margin-right: 24rpx;
-  flex-shrink: 0;
+  margin-bottom: 18rpx;
 }
 
-.kc-info {
-  flex: 1;
+.category-icon {
+  font-size: 50rpx;
 }
 
-.kc-name {
-  font-size: 32rpx;
+.category-name {
+  font-size: 28rpx;
   font-weight: 800;
   color: #1A3C2A;
+  text-align: center;
   margin-bottom: 6rpx;
 }
 
-.kc-desc {
-  font-size: 24rpx;
-  color: #6B8F7B;
-  margin-bottom: 8rpx;
-}
-
-.kc-count {
+.category-count {
   font-size: 22rpx;
-  color: #2D9A5D;
-  font-weight: 700;
-  background: #E8F5E9;
-  display: inline-block;
-  padding: 2rpx 14rpx;
-  border-radius: 12rpx;
-}
-
-.kc-arrow {
-  color: #A0C4AD;
-  font-size: 36rpx;
-  margin-left: 16rpx;
-  font-weight: 700;
+  color: #6B8F7B;
+  font-weight: 600;
 }
 
 /* Article list */
@@ -104,7 +96,7 @@
   color: #2D9A5D;
   font-weight: 700;
   background: #E8F5E9;
-  padding: 8rpx 24rpx;
+  padding: 10rpx 28rpx;
   border-radius: 24rpx;
 }
 
@@ -128,17 +120,9 @@
   margin-right: 10rpx;
 }
 
-.difficulty-dot.beginner {
-  background: #2D9A5D;
-}
-
-.difficulty-dot.intermediate {
-  background: #F5A623;
-}
-
-.difficulty-dot.advanced {
-  background: #E74C3C;
-}
+.difficulty-dot.beginner { background: #2D9A5D; }
+.difficulty-dot.intermediate { background: #F5A623; }
+.difficulty-dot.advanced { background: #E74C3C; }
 
 .ka-title {
   font-size: 32rpx;

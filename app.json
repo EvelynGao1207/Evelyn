@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/index/index",
     "pages/news-detail/news-detail",
     "pages/knowledge/knowledge",
-    "pages/knowledge-detail/knowledge-detail",
-    "pages/translate/translate"
+    "pages/knowledge-detail/knowledge-detail"
   ],
   "window": {
     "backgroundColor": "#F0F7F2",
@@ -30,12 +30,6 @@
         "text": "知识库",
         "iconPath": "images/book.png",
         "selectedIconPath": "images/book-active.png"
-      },
-      {
-        "pagePath": "pages/translate/translate",
-        "text": "翻译",
-        "iconPath": "images/translate.png",
-        "selectedIconPath": "images/translate-active.png"
       }
     ]
   },
