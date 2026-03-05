@@ -1,0 +1,73 @@
+<view class="container">
+  <!-- Header -->
+  <view class="header">
+    <view class="header-title">NeuroScope</view>
+    <view class="header-subtitle">神经科学 & 认知心理学前沿</view>
+    <view class="header-date">{{today}}</view>
+  </view>
+
+  <!-- Category filter -->
+  <scroll-view scroll-x class="category-scroll">
+    <view class="category-list">
+      <view
+        class="category-item {{currentCategory === '' ? 'active' : ''}}"
+        bindtap="onCategoryTap"
+        data-category=""
+      >全部</view>
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+        bindtap="onCategoryTap"
+        data-category="{{item.id}}"
+      >{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- News list -->
+  <view class="news-list" wx:if="{{!loading && newsList.length > 0}}">
+    <view
+      class="news-card card"
+      wx:for="{{newsList}}"
+      wx:key="_id"
+      bindtap="onNewsTap"
+      data-id="{{item._id}}"
+    >
+      <view class="news-card-top">
+        <view class="news-source">{{item.source}}</view>
+        <view class="news-time">{{item.relativeTime}}</view>
+      </view>
+      <view class="news-title">{{item.title}}</view>
+      <view class="news-summary">{{item.summary}}</view>
+      <view class="news-card-bottom">
+        <view class="tag tag-{{item.categoryClass}}">{{item.categoryName}}</view>
+        <view class="news-translate-btn" catchtap="onQuickTranslate" data-index="{{index}}" wx:if="{{!item.translated}}">
+          译
+        </view>
+        <view class="news-translated-hint" wx:if="{{item.translated}}">已翻译</view>
+      </view>
+      <!-- Translated content inline -->
+      <view class="translated-block" wx:if="{{item.translatedTitle}}">
+        <view class="translated-label">中文翻译</view>
+        <view class="translated-title">{{item.translatedTitle}}</view>
+        <view class="translated-summary">{{item.translatedSummary}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Loading state -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-text">正在加载最新资讯...</view>
+  </view>
+
+  <!-- Empty state -->
+  <view class="empty-state" wx:if="{{!loading && newsList.length === 0}}">
+    <view class="empty-icon">📡</view>
+    <view class="empty-text">暂无最新资讯，下拉刷新试试</view>
+  </view>
+
+  <!-- Load more -->
+  <view class="load-more" wx:if="{{hasMore && !loading}}" bindtap="onLoadMore">
+    <view class="load-more-text">加载更多</view>
+  </view>
+</view>

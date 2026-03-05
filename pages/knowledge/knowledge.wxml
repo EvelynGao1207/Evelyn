@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="header">
+    <view class="header-title">知识库</view>
+    <view class="header-subtitle">神经科学 & 认知心理学基础知识</view>
+  </view>
+
+  <!-- Search bar -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索知识点..."
+      value="{{searchText}}"
+      bindinput="onSearchInput"
+      bindconfirm="onSearch"
+    />
+  </view>
+
+  <!-- Knowledge categories -->
+  <view class="knowledge-categories" wx:if="{{!searchText}}">
+    <view
+      class="knowledge-category-card card"
+      wx:for="{{knowledgeCategories}}"
+      wx:key="id"
+      bindtap="onCategoryTap"
+      data-id="{{item.id}}"
+    >
+      <view class="kc-icon" style="background:{{item.color}}">{{item.icon}}</view>
+      <view class="kc-info">
+        <view class="kc-name">{{item.name}}</view>
+        <view class="kc-desc">{{item.description}}</view>
+        <view class="kc-count">{{item.count}} 篇文章</view>
+      </view>
+      <view class="kc-arrow">></view>
+    </view>
+  </view>
+
+  <!-- Article list (category or search result) -->
+  <view class="article-list" wx:if="{{currentCategoryName || searchText}}">
+    <view class="list-header">
+      <view class="list-title" wx:if="{{currentCategoryName}}">{{currentCategoryName}}</view>
+      <view class="list-title" wx:if="{{searchText}}">搜索: {{searchText}}</view>
+      <view class="list-back" bindtap="onBackToCategories" wx:if="{{currentCategoryName}}">返回分类</view>
+    </view>
+
+    <view
+      class="knowledge-article card"
+      wx:for="{{articleList}}"
+      wx:key="_id"
+      bindtap="onArticleTap"
+      data-id="{{item._id}}"
+    >
+      <view class="ka-difficulty">
+        <view class="difficulty-dot {{item.difficulty}}"></view>
+        <text>{{item.difficultyLabel}}</text>
+      </view>
+      <view class="ka-title">{{item.title}}</view>
+      <view class="ka-preview">{{item.preview}}</view>
+      <view class="ka-meta">
+        <view class="ka-reading-time">阅读 ~{{item.readingTime}} 分钟</view>
+        <view class="ka-progress" wx:if="{{item.progress > 0}}">
+          <view class="progress-bar">
+            <view class="progress-fill" style="width:{{item.progress}}%"></view>
+          </view>
+          <text class="progress-text">{{item.progress}}%</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{articleList.length === 0 && !loading}}">
+      <view class="empty-text">暂无相关内容</view>
+    </view>
+  </view>
+
+  <!-- Loading -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-text">加载中...</view>
+  </view>
+</view>

@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="detail-card card" wx:if="{{article}}">
+    <!-- Source & time -->
+    <view class="detail-meta">
+      <view class="detail-source">{{article.source}}</view>
+      <view class="detail-time">{{article.publishDate}}</view>
+    </view>
+
+    <!-- Title -->
+    <view class="detail-title">{{article.title}}</view>
+
+    <!-- Translated title -->
+    <view class="detail-translated-title" wx:if="{{translatedTitle}}">{{translatedTitle}}</view>
+
+    <!-- Tags -->
+    <view class="detail-tags">
+      <view class="tag tag-{{article.categoryClass}}">{{article.categoryName}}</view>
+      <view class="tag" wx:for="{{article.tags}}" wx:key="*this" style="background:#f0f0f0;color:#666;">{{item}}</view>
+    </view>
+
+    <!-- Translate button -->
+    <view class="translate-bar">
+      <view class="translate-btn {{isTranslated ? 'translated' : ''}}" bindtap="onTranslateAll">
+        {{isTranslating ? '翻译中...' : (isTranslated ? '查看原文' : '翻译全文')}}
+      </view>
+    </view>
+
+    <!-- Content -->
+    <view class="detail-content">
+      <view wx:if="{{!isTranslated}}">
+        <block wx:for="{{article.contentParagraphs}}" wx:key="index">
+          <view class="content-paragraph">{{item}}</view>
+        </block>
+      </view>
+      <view wx:else>
+        <block wx:for="{{translatedParagraphs}}" wx:key="index">
+          <view class="content-paragraph">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!-- Key findings -->
+    <view class="key-findings" wx:if="{{article.keyFindings && article.keyFindings.length > 0}}">
+      <view class="section-title">核心发现</view>
+      <view class="finding-item" wx:for="{{article.keyFindings}}" wx:key="index">
+        <view class="finding-dot"></view>
+        <view class="finding-text">{{item}}</view>
+      </view>
+    </view>
+
+    <!-- Original link -->
+    <view class="original-link" wx:if="{{article.url}}">
+      <view class="link-label">原文链接</view>
+      <view class="link-url" bindtap="onCopyLink">{{article.url}}</view>
+    </view>
+  </view>
+
+  <!-- Loading -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-text">加载文章详情中...</view>
+  </view>
+</view>

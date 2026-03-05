@@ -1,0 +1,95 @@
+<view class="container">
+  <view class="header">
+    <view class="header-title">学术翻译</view>
+    <view class="header-subtitle">神经科学 & 认知心理学专业翻译</view>
+  </view>
+
+  <!-- Language selector -->
+  <view class="lang-selector">
+    <view class="lang-item">
+      <picker bindchange="onFromLangChange" value="{{fromLangIndex}}" range="{{langOptions}}" range-key="name">
+        <view class="lang-picker">{{langOptions[fromLangIndex].name}}</view>
+      </picker>
+    </view>
+    <view class="lang-swap" bindtap="onSwapLang">⇄</view>
+    <view class="lang-item">
+      <picker bindchange="onToLangChange" value="{{toLangIndex}}" range="{{langOptions}}" range-key="name">
+        <view class="lang-picker">{{langOptions[toLangIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- Input area -->
+  <view class="translate-input-area card">
+    <textarea
+      class="translate-input"
+      placeholder="粘贴或输入需要翻译的文本..."
+      value="{{inputText}}"
+      bindinput="onInputChange"
+      maxlength="5000"
+      auto-height
+    ></textarea>
+    <view class="input-footer">
+      <view class="char-count">{{inputText.length}} / 5000</view>
+      <view class="clear-btn" bindtap="onClear" wx:if="{{inputText.length > 0}}">清除</view>
+    </view>
+  </view>
+
+  <!-- Translate button -->
+  <view class="translate-action">
+    <view class="translate-main-btn {{translating ? 'disabled' : ''}}" bindtap="onTranslate">
+      {{translating ? '翻译中...' : '翻译'}}
+    </view>
+  </view>
+
+  <!-- Result area -->
+  <view class="translate-result-area card" wx:if="{{resultText}}">
+    <view class="result-header">
+      <view class="result-label">翻译结果</view>
+      <view class="copy-btn" bindtap="onCopyResult">复制</view>
+    </view>
+    <view class="result-text">{{resultText}}</view>
+
+    <!-- Term highlights -->
+    <view class="term-highlights" wx:if="{{detectedTerms.length > 0}}">
+      <view class="term-highlight-title">检测到的专业术语</view>
+      <view class="term-highlight-item" wx:for="{{detectedTerms}}" wx:key="index">
+        <text class="th-original">{{item.original}}</text>
+        <text class="th-arrow"> → </text>
+        <text class="th-translated">{{item.translated}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Quick phrase section -->
+  <view class="quick-phrases">
+    <view class="section-title">常用短语快译</view>
+    <view class="phrase-grid">
+      <view
+        class="phrase-item card"
+        wx:for="{{quickPhrases}}"
+        wx:key="index"
+        bindtap="onQuickPhrase"
+        data-text="{{item.en}}"
+      >
+        <view class="phrase-en">{{item.en}}</view>
+        <view class="phrase-zh">{{item.zh}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Recent translations -->
+  <view class="recent-section" wx:if="{{history.length > 0}}">
+    <view class="section-title">最近翻译</view>
+    <view
+      class="history-item card"
+      wx:for="{{history}}"
+      wx:key="index"
+      bindtap="onHistoryTap"
+      data-index="{{index}}"
+    >
+      <view class="history-original">{{item.original}}</view>
+      <view class="history-translated">{{item.translated}}</view>
+    </view>
+  </view>
+</view>

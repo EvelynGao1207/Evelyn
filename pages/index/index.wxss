@@ -1,0 +1,158 @@
+.header {
+  padding: 30rpx 0 20rpx;
+}
+
+.header-title {
+  font-size: 52rpx;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: 2rpx;
+}
+
+.header-subtitle {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+.header-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* Category scroll */
+.category-scroll {
+  white-space: nowrap;
+  margin-bottom: 24rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  gap: 16rpx;
+  padding: 10rpx 0;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 12rpx 28rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  background: #fff;
+  color: #666;
+  border: 1rpx solid #e0e0e0;
+  transition: all 0.3s;
+}
+
+.category-item.active {
+  background: #6c5ce7;
+  color: #fff;
+  border-color: #6c5ce7;
+}
+
+/* News card */
+.news-card {
+  position: relative;
+}
+
+.news-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.news-source {
+  font-size: 24rpx;
+  color: #6c5ce7;
+  font-weight: 600;
+}
+
+.news-time {
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+.news-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.5;
+  margin-bottom: 12rpx;
+}
+
+.news-summary {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+}
+
+.news-card-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.news-translate-btn {
+  margin-left: auto;
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: #6c5ce7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.news-translated-hint {
+  margin-left: auto;
+  font-size: 22rpx;
+  color: #4caf50;
+}
+
+/* Translated block */
+.translated-block {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #f8f7ff;
+  border-radius: 12rpx;
+  border-left: 6rpx solid #6c5ce7;
+}
+
+.translated-label {
+  font-size: 22rpx;
+  color: #6c5ce7;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.translated-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.translated-summary {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Load more */
+.load-more {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.load-more-text {
+  color: #6c5ce7;
+  font-size: 26rpx;
+}

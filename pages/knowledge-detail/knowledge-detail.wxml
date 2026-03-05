@@ -1,0 +1,88 @@
+<view class="container">
+  <view class="detail-card card" wx:if="{{article}}">
+    <!-- Difficulty & reading time -->
+    <view class="detail-meta-bar">
+      <view class="difficulty-badge {{article.difficulty}}">{{article.difficultyLabel}}</view>
+      <view class="reading-time">阅读约 {{article.readingTime}} 分钟</view>
+    </view>
+
+    <!-- Title -->
+    <view class="detail-title">{{article.title}}</view>
+
+    <!-- Table of contents -->
+    <view class="toc" wx:if="{{article.sections && article.sections.length > 0}}">
+      <view class="toc-title">目录</view>
+      <view
+        class="toc-item"
+        wx:for="{{article.sections}}"
+        wx:key="index"
+        bindtap="onTocTap"
+        data-index="{{index}}"
+      >
+        <view class="toc-number">{{index + 1}}</view>
+        <view class="toc-text">{{item.heading}}</view>
+      </view>
+    </view>
+
+    <!-- Content sections -->
+    <view class="content-sections">
+      <view
+        class="content-section"
+        wx:for="{{article.sections}}"
+        wx:key="index"
+        id="section-{{index}}"
+      >
+        <view class="section-heading">{{item.heading}}</view>
+        <view class="section-body">
+          <block wx:for="{{item.paragraphs}}" wx:for-item="para" wx:key="pIndex">
+            <view class="section-paragraph">{{para}}</view>
+          </block>
+        </view>
+        <!-- Key terms -->
+        <view class="key-terms" wx:if="{{item.keyTerms && item.keyTerms.length > 0}}">
+          <view class="key-terms-title">关键术语</view>
+          <view class="term-item" wx:for="{{item.keyTerms}}" wx:for-item="term" wx:key="tIndex">
+            <text class="term-name">{{term.term}}</text>
+            <text class="term-def"> - {{term.definition}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Quiz section -->
+    <view class="quiz-section" wx:if="{{article.quiz && article.quiz.length > 0}}">
+      <view class="section-title">自测题</view>
+      <view class="quiz-item" wx:for="{{article.quiz}}" wx:key="index">
+        <view class="quiz-question">{{index + 1}}. {{item.question}}</view>
+        <view
+          class="quiz-option {{quizAnswers[index] === oIndex ? (item.correctAnswer === oIndex ? 'correct' : 'wrong') : ''}} {{quizAnswers[index] !== undefined && item.correctAnswer === oIndex ? 'correct' : ''}}"
+          wx:for="{{item.options}}"
+          wx:for-item="option"
+          wx:for-index="oIndex"
+          wx:key="oIndex"
+          bindtap="onQuizAnswer"
+          data-question="{{index}}"
+          data-option="{{oIndex}}"
+        >
+          <text>{{option}}</text>
+        </view>
+        <view class="quiz-explanation" wx:if="{{quizAnswers[index] !== undefined}}">
+          {{item.explanation}}
+        </view>
+      </view>
+    </view>
+
+    <!-- Reading progress -->
+    <view class="progress-section">
+      <view class="progress-label">阅读进度</view>
+      <view class="progress-bar-large">
+        <view class="progress-fill-large" style="width:{{readingProgress}}%"></view>
+      </view>
+      <view class="progress-percent">{{readingProgress}}%</view>
+    </view>
+  </view>
+
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-text">加载中...</view>
+  </view>
+</view>

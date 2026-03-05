@@ -1,0 +1,9 @@
+{
+  "name": "getKnowledge",
+  "version": "1.0.0",
+  "description": "Knowledge base for neuroscience and cognitive psychology",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
