@@ -1,7 +1,7 @@
 <view class="container">
   <!-- Header -->
   <view class="header">
-    <view class="header-title">NeuroScope</view>
+    <view class="header-title">瞬见NeuroScope</view>
     <view class="header-subtitle">神经科学 & 认知心理学前沿</view>
     <view class="header-date">{{today}}</view>
   </view>

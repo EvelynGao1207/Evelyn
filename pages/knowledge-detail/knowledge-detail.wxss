@@ -1,73 +1,77 @@
+/* Meta bar */
 .detail-meta-bar {
   display: flex;
   align-items: center;
   gap: 20rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 24rpx;
 }
 
 .difficulty-badge {
-  padding: 8rpx 20rpx;
-  border-radius: 20rpx;
-  font-size: 22rpx;
-  font-weight: 600;
+  padding: 10rpx 24rpx;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  font-weight: 700;
 }
 
 .difficulty-badge.beginner {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: #E8F5E9;
+  color: #2D9A5D;
 }
 
 .difficulty-badge.intermediate {
-  background: #fff3e0;
-  color: #e65100;
+  background: #FFF8E1;
+  color: #F5A623;
 }
 
 .difficulty-badge.advanced {
-  background: #fce4ec;
-  color: #c62828;
+  background: #FCE4EC;
+  color: #E74C3C;
 }
 
 .reading-time {
   font-size: 24rpx;
-  color: #999;
+  color: #A0C4AD;
+  font-weight: 600;
 }
 
 .detail-title {
-  font-size: 40rpx;
-  font-weight: 800;
-  color: #1a1a2e;
+  font-size: 42rpx;
+  font-weight: 900;
+  color: #1A3C2A;
   line-height: 1.4;
-  margin-bottom: 30rpx;
+  margin-bottom: 32rpx;
 }
 
-/* Table of contents */
+/* Table of contents - green card */
 .toc {
-  background: #f8f7ff;
-  border-radius: 16rpx;
-  padding: 24rpx;
+  background: #F0F7F2;
+  border-radius: 20rpx;
+  padding: 28rpx;
   margin-bottom: 40rpx;
+  border-left: 6rpx solid #2D9A5D;
 }
 
 .toc-title {
   font-size: 28rpx;
-  font-weight: 700;
-  color: #6c5ce7;
+  font-weight: 800;
+  color: #2D9A5D;
   margin-bottom: 16rpx;
 }
 
 .toc-item {
   display: flex;
   align-items: center;
-  padding: 12rpx 0;
+  padding: 14rpx 0;
 }
 
 .toc-number {
-  width: 40rpx;
-  height: 40rpx;
+  width: 44rpx;
+  height: 44rpx;
   border-radius: 50%;
-  background: #6c5ce7;
+  background: #2D9A5D;
   color: #fff;
-  font-size: 22rpx;
+  font-size: 24rpx;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +81,8 @@
 
 .toc-text {
   font-size: 28rpx;
-  color: #333;
+  color: #1A3C2A;
+  font-weight: 600;
 }
 
 /* Content sections */
@@ -86,57 +91,58 @@
 }
 
 .section-heading {
-  font-size: 34rpx;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #1A3C2A;
   padding-bottom: 16rpx;
-  border-bottom: 4rpx solid #6c5ce7;
+  border-bottom: 4rpx solid #2D9A5D;
   margin-bottom: 24rpx;
 }
 
 .section-paragraph {
   font-size: 30rpx;
-  color: #444;
+  color: #3A5D44;
   line-height: 2;
   margin-bottom: 20rpx;
   text-align: justify;
 }
 
-/* Key terms */
+/* Key terms - green accent */
 .key-terms {
-  background: #f5f5f5;
-  border-radius: 12rpx;
-  padding: 20rpx;
-  margin-top: 20rpx;
+  background: #F0F7F2;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-top: 24rpx;
 }
 
 .key-terms-title {
   font-size: 26rpx;
-  font-weight: 700;
-  color: #6c5ce7;
-  margin-bottom: 12rpx;
+  font-weight: 800;
+  color: #2D9A5D;
+  margin-bottom: 14rpx;
 }
 
 .term-item {
-  margin-bottom: 10rpx;
+  margin-bottom: 12rpx;
   font-size: 26rpx;
-  line-height: 1.6;
+  line-height: 1.7;
+  padding: 8rpx 0;
 }
 
 .term-name {
-  font-weight: 700;
-  color: #333;
+  font-weight: 800;
+  color: #1A3C2A;
 }
 
 .term-def {
-  color: #666;
+  color: #5A7D66;
 }
 
-/* Quiz */
+/* Quiz - green theme */
 .quiz-section {
   margin-top: 50rpx;
   padding-top: 30rpx;
-  border-top: 2rpx solid #eee;
+  border-top: 2rpx solid #D4E8DA;
 }
 
 .quiz-item {
@@ -145,78 +151,83 @@
 
 .quiz-question {
   font-size: 30rpx;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 16rpx;
+  font-weight: 700;
+  color: #1A3C2A;
+  margin-bottom: 18rpx;
   line-height: 1.6;
 }
 
 .quiz-option {
-  padding: 18rpx 24rpx;
-  margin-bottom: 12rpx;
-  border-radius: 12rpx;
-  background: #f5f5f5;
+  padding: 20rpx 28rpx;
+  margin-bottom: 14rpx;
+  border-radius: 16rpx;
+  background: #F0F7F2;
   font-size: 28rpx;
-  color: #555;
+  color: #3A5D44;
   border: 2rpx solid transparent;
+  font-weight: 500;
 }
 
 .quiz-option.correct {
-  background: #e8f5e9;
-  border-color: #4caf50;
-  color: #2e7d32;
+  background: #E8F5E9;
+  border-color: #2D9A5D;
+  color: #2D9A5D;
+  font-weight: 700;
 }
 
 .quiz-option.wrong {
-  background: #fce4ec;
-  border-color: #f44336;
-  color: #c62828;
+  background: #FCE4EC;
+  border-color: #E74C3C;
+  color: #E74C3C;
+  font-weight: 700;
 }
 
 .quiz-explanation {
-  padding: 16rpx 20rpx;
-  background: #fff8e1;
-  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  background: #FFF8E1;
+  border-radius: 16rpx;
   font-size: 26rpx;
-  color: #f57f17;
+  color: #F5A623;
   line-height: 1.7;
-  margin-top: 12rpx;
+  margin-top: 14rpx;
+  font-weight: 600;
 }
 
-/* Progress */
+/* Progress - green bar */
 .progress-section {
   display: flex;
   align-items: center;
   gap: 16rpx;
   margin-top: 50rpx;
   padding-top: 30rpx;
-  border-top: 1rpx solid #eee;
+  border-top: 2rpx solid #D4E8DA;
 }
 
 .progress-label {
   font-size: 26rpx;
-  color: #999;
+  color: #6B8F7B;
   flex-shrink: 0;
+  font-weight: 600;
 }
 
 .progress-bar-large {
   flex: 1;
-  height: 12rpx;
-  background: #e0e0e0;
-  border-radius: 6rpx;
+  height: 14rpx;
+  background: #D4E8DA;
+  border-radius: 7rpx;
   overflow: hidden;
 }
 
 .progress-fill-large {
   height: 100%;
-  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
-  border-radius: 6rpx;
+  background: #2D9A5D;
+  border-radius: 7rpx;
   transition: width 0.3s ease;
 }
 
 .progress-percent {
-  font-size: 24rpx;
-  color: #6c5ce7;
-  font-weight: 600;
+  font-size: 26rpx;
+  color: #2D9A5D;
+  font-weight: 800;
   flex-shrink: 0;
 }

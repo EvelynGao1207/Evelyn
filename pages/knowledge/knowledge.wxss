@@ -1,47 +1,52 @@
+/* Header */
 .header {
-  padding: 30rpx 0 20rpx;
+  padding: 20rpx 0 24rpx;
 }
 
 .header-title {
-  font-size: 48rpx;
-  font-weight: 800;
-  color: #1a1a2e;
+  font-size: 52rpx;
+  font-weight: 900;
+  color: #1A3C2A;
 }
 
 .header-subtitle {
   font-size: 26rpx;
-  color: #666;
+  color: #6B8F7B;
   margin-top: 8rpx;
+  font-weight: 500;
 }
 
-/* Search */
+/* Search - rounded pill */
 .search-bar {
-  margin-bottom: 30rpx;
+  margin-bottom: 32rpx;
 }
 
 .search-input {
   background: #fff;
   border-radius: 40rpx;
-  padding: 20rpx 30rpx;
+  padding: 22rpx 32rpx;
   font-size: 28rpx;
-  border: 1rpx solid #e0e0e0;
+  border: 2rpx solid #D4E8DA;
+  color: #2C3E2D;
+  box-shadow: 0 2rpx 12rpx rgba(45, 154, 93, 0.06);
 }
 
-/* Category cards */
+/* Category cards - vibrant colored left borders */
 .knowledge-category-card {
   display: flex;
   align-items: center;
   padding: 28rpx;
+  border-left: 6rpx solid #2D9A5D;
 }
 
 .kc-icon {
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 20rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40rpx;
+  font-size: 44rpx;
   margin-right: 24rpx;
   flex-shrink: 0;
 }
@@ -52,26 +57,32 @@
 
 .kc-name {
   font-size: 32rpx;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-weight: 800;
+  color: #1A3C2A;
   margin-bottom: 6rpx;
 }
 
 .kc-desc {
   font-size: 24rpx;
-  color: #888;
-  margin-bottom: 6rpx;
+  color: #6B8F7B;
+  margin-bottom: 8rpx;
 }
 
 .kc-count {
   font-size: 22rpx;
-  color: #6c5ce7;
+  color: #2D9A5D;
+  font-weight: 700;
+  background: #E8F5E9;
+  display: inline-block;
+  padding: 2rpx 14rpx;
+  border-radius: 12rpx;
 }
 
 .kc-arrow {
-  color: #ccc;
-  font-size: 32rpx;
+  color: #A0C4AD;
+  font-size: 36rpx;
   margin-left: 16rpx;
+  font-weight: 700;
 }
 
 /* Article list */
@@ -84,59 +95,64 @@
 
 .list-title {
   font-size: 36rpx;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-weight: 800;
+  color: #1A3C2A;
 }
 
 .list-back {
   font-size: 26rpx;
-  color: #6c5ce7;
+  color: #2D9A5D;
+  font-weight: 700;
+  background: #E8F5E9;
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
 }
 
 .knowledge-article {
-  padding: 24rpx 28rpx;
+  padding: 28rpx;
 }
 
 .ka-difficulty {
   display: flex;
   align-items: center;
   font-size: 22rpx;
-  color: #888;
-  margin-bottom: 10rpx;
+  color: #6B8F7B;
+  margin-bottom: 12rpx;
+  font-weight: 600;
 }
 
 .difficulty-dot {
-  width: 14rpx;
-  height: 14rpx;
+  width: 16rpx;
+  height: 16rpx;
   border-radius: 50%;
   margin-right: 10rpx;
 }
 
 .difficulty-dot.beginner {
-  background: #4caf50;
+  background: #2D9A5D;
 }
 
 .difficulty-dot.intermediate {
-  background: #ff9800;
+  background: #F5A623;
 }
 
 .difficulty-dot.advanced {
-  background: #f44336;
+  background: #E74C3C;
 }
 
 .ka-title {
   font-size: 32rpx;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-weight: 800;
+  color: #1A3C2A;
   margin-bottom: 10rpx;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .ka-preview {
   font-size: 26rpx;
-  color: #777;
-  line-height: 1.6;
-  margin-bottom: 14rpx;
+  color: #5A7D66;
+  line-height: 1.7;
+  margin-bottom: 16rpx;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -151,7 +167,8 @@
 
 .ka-reading-time {
   font-size: 22rpx;
-  color: #aaa;
+  color: #A0C4AD;
+  font-weight: 600;
 }
 
 .ka-progress {
@@ -162,19 +179,20 @@
 
 .progress-bar {
   width: 100rpx;
-  height: 8rpx;
-  background: #e0e0e0;
-  border-radius: 4rpx;
+  height: 10rpx;
+  background: #D4E8DA;
+  border-radius: 5rpx;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: #6c5ce7;
-  border-radius: 4rpx;
+  background: #2D9A5D;
+  border-radius: 5rpx;
 }
 
 .progress-text {
   font-size: 20rpx;
-  color: #6c5ce7;
+  color: #2D9A5D;
+  font-weight: 700;
 }

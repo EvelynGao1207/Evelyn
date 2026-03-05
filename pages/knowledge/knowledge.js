@@ -75,7 +75,7 @@ Page({
         name: '神经元基础',
         description: '神经元结构、动作电位、突触传递',
         icon: '🧬',
-        color: '#e8f5e9',
+        color: '#E8F5E9',
         count: 12
       },
       {
@@ -83,7 +83,7 @@ Page({
         name: '脑解剖学',
         description: '大脑皮层、边缘系统、脑干结构',
         icon: '🧠',
-        color: '#e3f2fd',
+        color: '#DCEEF9',
         count: 15
       },
       {
@@ -91,7 +91,7 @@ Page({
         name: '认知过程',
         description: '注意力、记忆、语言、决策',
         icon: '💭',
-        color: '#fff3e0',
+        color: '#FFF3E0',
         count: 18
       },
       {
@@ -99,7 +99,7 @@ Page({
         name: '知觉与感觉',
         description: '视觉、听觉、触觉及多感觉整合',
         icon: '👁',
-        color: '#fce4ec',
+        color: '#FCE4EC',
         count: 10
       },
       {
@@ -107,7 +107,7 @@ Page({
         name: '学习与记忆',
         description: 'LTP/LTD、海马体、记忆巩固',
         icon: '📚',
-        color: '#f3e5f5',
+        color: '#F3E5F5',
         count: 14
       },
       {
@@ -115,7 +115,7 @@ Page({
         name: '神经递质系统',
         description: '多巴胺、血清素、GABA、谷氨酸',
         icon: '⚗',
-        color: '#e0f7fa',
+        color: '#E0F7FA',
         count: 11
       },
       {
@@ -123,7 +123,7 @@ Page({
         name: '研究方法',
         description: 'fMRI、EEG、TMS、光遗传学',
         icon: '🔬',
-        color: '#f1f8e9',
+        color: '#F1F8E9',
         count: 9
       },
       {
@@ -131,7 +131,7 @@ Page({
         name: '神经与认知障碍',
         description: '抑郁症、焦虑、ADHD、自闭症',
         icon: '🏥',
-        color: '#fff8e1',
+        color: '#FFF8E1',
         count: 16
       }
     ];

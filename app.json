@@ -7,15 +7,15 @@
     "pages/translate/translate"
   ],
   "window": {
-    "backgroundColor": "#f5f5f5",
+    "backgroundColor": "#F0F7F2",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1a1a2e",
-    "navigationBarTitleText": "NeuroScope",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "瞬见NeuroScope",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999",
-    "selectedColor": "#6c5ce7",
+    "selectedColor": "#2D9A5D",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [
