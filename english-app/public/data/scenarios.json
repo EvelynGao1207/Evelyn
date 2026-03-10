@@ -1,0 +1,127 @@
+{
+  "categories": [
+    {
+      "id": "dining",
+      "name": "餐饮美食",
+      "icon": "🍽️",
+      "color": "#FF6B6B",
+      "subScenarios": [
+        { "id": "ordering", "name": "餐厅点餐", "desc": "Ordering at a restaurant" },
+        { "id": "reservation", "name": "预约订位", "desc": "Making a reservation" },
+        { "id": "complaining", "name": "餐食投诉", "desc": "Complaining about food or service" },
+        { "id": "splitting", "name": "AA结账", "desc": "Splitting the bill with friends" }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "购物消费",
+      "icon": "🛍️",
+      "color": "#4ECDC4",
+      "subScenarios": [
+        { "id": "grocery", "name": "超市购物", "desc": "Shopping at a grocery store" },
+        { "id": "clothes", "name": "买衣服", "desc": "Shopping for clothes" },
+        { "id": "returning", "name": "退换货", "desc": "Returning or exchanging items" },
+        { "id": "bargaining", "name": "讨价还价", "desc": "Negotiating a price" }
+      ]
+    },
+    {
+      "id": "transportation",
+      "name": "出行交通",
+      "icon": "🚗",
+      "color": "#45B7D1",
+      "subScenarios": [
+        { "id": "rideshare", "name": "打车", "desc": "Taking a rideshare or taxi" },
+        { "id": "directions", "name": "问路", "desc": "Asking for directions" },
+        { "id": "airport", "name": "机场", "desc": "At the airport" },
+        { "id": "rental", "name": "租车", "desc": "Renting a car" }
+      ]
+    },
+    {
+      "id": "socializing",
+      "name": "社交聊天",
+      "icon": "💬",
+      "color": "#96CEB4",
+      "subScenarios": [
+        { "id": "smalltalk", "name": "寒暄闲聊", "desc": "Making small talk" },
+        { "id": "party", "name": "聚会社交", "desc": "At a party or gathering" },
+        { "id": "invitation", "name": "邀约朋友", "desc": "Inviting someone out" },
+        { "id": "catching_up", "name": "叙旧", "desc": "Catching up with an old friend" }
+      ]
+    },
+    {
+      "id": "workplace",
+      "name": "工作职场",
+      "icon": "💼",
+      "color": "#FFEAA7",
+      "subScenarios": [
+        { "id": "meeting", "name": "开会讨论", "desc": "In a team meeting" },
+        { "id": "interview", "name": "面试", "desc": "Job interview" },
+        { "id": "leave", "name": "请假", "desc": "Asking for time off" },
+        { "id": "watercooler", "name": "茶水间闲聊", "desc": "Water cooler chat with colleagues" }
+      ]
+    },
+    {
+      "id": "housing",
+      "name": "居家生活",
+      "icon": "🏠",
+      "color": "#DDA0DD",
+      "subScenarios": [
+        { "id": "renting", "name": "租房看房", "desc": "Renting an apartment" },
+        { "id": "maintenance", "name": "报修", "desc": "Requesting maintenance or repairs" },
+        { "id": "neighbor", "name": "邻里交流", "desc": "Talking with neighbors" },
+        { "id": "moving", "name": "搬家", "desc": "Moving to a new place" }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "name": "医疗健康",
+      "icon": "🏥",
+      "color": "#87CEEB",
+      "subScenarios": [
+        { "id": "doctor", "name": "看医生", "desc": "Visiting a doctor" },
+        { "id": "pharmacy", "name": "买药", "desc": "At the pharmacy" },
+        { "id": "symptoms", "name": "描述症状", "desc": "Describing symptoms" },
+        { "id": "emergency", "name": "紧急情况", "desc": "Emergency situation" }
+      ]
+    },
+    {
+      "id": "entertainment",
+      "name": "休闲娱乐",
+      "icon": "🎬",
+      "color": "#F0E68C",
+      "subScenarios": [
+        { "id": "movies", "name": "聊电影", "desc": "Discussing movies or TV shows" },
+        { "id": "sports", "name": "运动健身", "desc": "Talking about sports or fitness" },
+        { "id": "travel", "name": "旅行计划", "desc": "Planning a trip" },
+        { "id": "hobbies", "name": "兴趣爱好", "desc": "Sharing hobbies" }
+      ]
+    }
+  ],
+  "dailyExpressions": [
+    { "en": "It's on the tip of my tongue", "zh": "话到嘴边了（想说但一时想不起来）", "example": "I know the answer... it's on the tip of my tongue!" },
+    { "en": "I'm swamped", "zh": "忙得不可开交", "example": "Sorry, I can't make it tonight. I'm totally swamped with work." },
+    { "en": "Let's play it by ear", "zh": "到时候再说/随机应变", "example": "I'm not sure if it'll rain. Let's just play it by ear." },
+    { "en": "That rings a bell", "zh": "听起来有点耳熟", "example": "That name rings a bell, but I can't remember where I heard it." },
+    { "en": "I'll take a rain check", "zh": "改天吧（委婉拒绝）", "example": "I'm exhausted tonight. Can I take a rain check on dinner?" },
+    { "en": "No worries", "zh": "没关系/别担心", "example": "Oh, you forgot the book? No worries, I'll grab it next time." },
+    { "en": "It slipped my mind", "zh": "我忘了", "example": "Sorry I didn't call you back — it totally slipped my mind." },
+    { "en": "I'm on my way", "zh": "我在路上了", "example": "Don't worry, I'm on my way. Be there in 10 minutes!" },
+    { "en": "What's the catch?", "zh": "有什么条件/陷阱吗？", "example": "Free tickets to the concert? What's the catch?" },
+    { "en": "You nailed it!", "zh": "你做得太棒了！", "example": "That presentation was amazing — you absolutely nailed it!" },
+    { "en": "I could use a hand", "zh": "我需要帮忙", "example": "Hey, I could use a hand moving this couch. Mind helping?" },
+    { "en": "It's not a big deal", "zh": "没什么大不了的", "example": "I know I messed up, but honestly, it's not a big deal." },
+    { "en": "I'm running late", "zh": "我要迟到了", "example": "Traffic is terrible — I'm running about 15 minutes late." },
+    { "en": "Let me sleep on it", "zh": "让我考虑一下（睡一觉再想）", "example": "That's a big decision. Let me sleep on it and get back to you." },
+    { "en": "Hang in there", "zh": "坚持住/撑住", "example": "I know work is tough right now, but hang in there — it'll get better." },
+    { "en": "I'm broke", "zh": "我没钱了", "example": "Can't go out this weekend — I'm completely broke." },
+    { "en": "It's a long shot", "zh": "希望渺茫", "example": "Getting front-row tickets is a long shot, but let's try." },
+    { "en": "By the way", "zh": "顺便说一下", "example": "Oh, by the way, did you hear about the new restaurant downtown?" },
+    { "en": "I'm not in the mood", "zh": "我没心情", "example": "Thanks for asking, but I'm not really in the mood for a movie tonight." },
+    { "en": "That makes sense", "zh": "有道理/说得通", "example": "Oh, so that's why the store was closed. That makes sense." },
+    { "en": "Give me a sec", "zh": "等我一下", "example": "Give me a sec — I just need to grab my jacket." },
+    { "en": "I'm all ears", "zh": "我洗耳恭听", "example": "You have a new idea? I'm all ears!" },
+    { "en": "Better late than never", "zh": "迟到总比不到好", "example": "You finally started exercising? Well, better late than never!" },
+    { "en": "Don't get me started", "zh": "别让我开始说（抱怨很多）", "example": "The traffic today? Don't even get me started." },
+    { "en": "Fingers crossed", "zh": "祝好运/但愿如此", "example": "My interview is tomorrow. Fingers crossed!" }
+  ]
+}

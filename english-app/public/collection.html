@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>收藏 - SpeakEasy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-header">
+    <div class="page-title">⭐ 我的收藏</div>
+    <div class="page-subtitle">积累地道表达，随时复习</div>
+  </div>
+
+  <!-- Review Toggle -->
+  <div class="review-toggle">
+    <button class="review-btn" id="reviewBtn" onclick="toggleReview()">闪卡复习</button>
+    <button class="review-btn secondary" id="exportBtn" onclick="exportAll()" style="margin-left:8px;">导出</button>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="filter-tabs" id="filterTabs"></div>
+
+  <!-- List View -->
+  <div id="listView"></div>
+
+  <!-- Flashcard View -->
+  <div id="flashcardView" style="display:none;">
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="flashcard-en" id="fcEn"></div>
+        <div class="flashcard-zh" id="fcZh" style="display:none;"></div>
+        <div class="flashcard-example" id="fcExample" style="display:none;"></div>
+        <div class="flashcard-hint">点击翻转</div>
+      </div>
+      <div class="flashcard-progress" id="fcProgress"></div>
+      <div class="flashcard-nav">
+        <button class="prev-btn" onclick="prevCard()">上一个</button>
+        <button class="next-btn" onclick="nextCard()">下一个</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <div class="empty-icon">📝</div>
+    <div class="empty-text">还没有收藏的表达<br>在对话或翻译中收藏你喜欢的表达吧</div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <span>首页</span>
+    </a>
+    <a href="translate.html" class="nav-item">
+      <span class="nav-icon">🌐</span>
+      <span>翻译</span>
+    </a>
+    <a href="collection.html" class="nav-item active">
+      <span class="nav-icon">⭐</span>
+      <span>收藏</span>
+    </a>
+  </nav>
+
+  <script src="js/storage.js"></script>
+  <script src="js/collection.js"></script>
+</body>
+</html>

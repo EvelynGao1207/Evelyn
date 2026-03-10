@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻译 - SpeakEasy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-header">
+    <div class="page-title">🌐 地道翻译</div>
+    <div class="page-subtitle">不止翻译，教你母语者的说法</div>
+  </div>
+
+  <!-- Direction Toggle -->
+  <div class="translate-direction">
+    <span class="dir-label" id="fromLabel">中文</span>
+    <button class="dir-swap" onclick="swapDirection()">⇄</button>
+    <span class="dir-label" id="toLabel">English</span>
+  </div>
+
+  <!-- Input -->
+  <div class="translate-input-area">
+    <textarea class="translate-textarea" id="inputText" placeholder="输入要翻译的文字..."></textarea>
+  </div>
+  <button class="translate-btn" id="translateBtn" onclick="doTranslate()">翻译</button>
+
+  <!-- Results -->
+  <div id="results" style="display:none;">
+    <div class="result-card">
+      <div class="result-label formal">FORMAL 正式</div>
+      <div class="result-text" id="formalResult"></div>
+      <div class="result-actions">
+        <button class="save-btn" onclick="saveResult('formal')">收藏</button>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-label casual">CASUAL 口语</div>
+      <div class="result-text" id="casualResult"></div>
+      <div class="result-actions">
+        <button class="save-btn" onclick="saveResult('casual')">收藏</button>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-label slang">SLANG 俚语</div>
+      <div class="result-text" id="slangResult"></div>
+      <div class="result-actions">
+        <button class="save-btn" onclick="saveResult('slang')">收藏</button>
+      </div>
+    </div>
+    <div class="result-note" id="resultNote"></div>
+  </div>
+
+  <!-- History -->
+  <div class="translate-history" id="historySection">
+    <div class="translate-history-title">最近翻译</div>
+    <div id="historyList"></div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <span>首页</span>
+    </a>
+    <a href="translate.html" class="nav-item active">
+      <span class="nav-icon">🌐</span>
+      <span>翻译</span>
+    </a>
+    <a href="collection.html" class="nav-item">
+      <span class="nav-icon">⭐</span>
+      <span>收藏</span>
+    </a>
+  </nav>
+
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/translate.js"></script>
+</body>
+</html>
