@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpeakEasy - 英语口语练习</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-header">
+    <div class="page-title">SpeakEasy</div>
+    <div class="page-subtitle">每天练一练，口语更地道</div>
+  </div>
+
+  <!-- Daily Expressions -->
+  <div class="daily-card" id="dailyCard">
+    <div class="daily-title">📖 今日表达</div>
+    <div id="dailyExpressions"></div>
+  </div>
+
+  <!-- Scenario Grid / Sub-scenario List -->
+  <div id="mainContent">
+    <div class="card-title" style="padding: 0 20px; margin-top: 8px;">选择练习场景</div>
+    <div class="scenario-grid" id="scenarioGrid"></div>
+  </div>
+
+  <!-- Sub-scenario panel (hidden by default) -->
+  <div id="subPanel" style="display:none;">
+    <div class="page-header" style="position:static;">
+      <div class="header-with-back">
+        <span class="back-icon" onclick="showMainGrid()">←</span>
+        <div>
+          <div class="page-title" id="subPanelTitle"></div>
+          <div class="page-subtitle" id="subPanelSubtitle">选择具体场景开始对话</div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-scenario-list" id="subList"></div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active">
+      <span class="nav-icon">🏠</span>
+      <span>首页</span>
+    </a>
+    <a href="translate.html" class="nav-item">
+      <span class="nav-icon">🌐</span>
+      <span>翻译</span>
+    </a>
+    <a href="collection.html" class="nav-item">
+      <span class="nav-icon">⭐</span>
+      <span>收藏</span>
+    </a>
+  </nav>
+
+  <script src="js/storage.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

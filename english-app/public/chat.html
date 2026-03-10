@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对话练习 - SpeakEasy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { padding-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div>
+        <a href="index.html" class="back-btn">← 返回</a>
+        <span class="scenario-label" id="scenarioLabel">对话练习</span>
+      </div>
+      <button class="end-btn" id="endBtn" onclick="endAndSummarize()">结束总结</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="message system">AI 正在创设情境...</div>
+    </div>
+
+    <div class="chat-input-bar">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type your message in English..."
+             onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}">
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()">↑</button>
+    </div>
+  </div>
+
+  <!-- Summary Modal -->
+  <div class="modal-overlay" id="summaryModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-title">📝 学习总结</div>
+      <div id="summaryContent">
+        <div class="loading"><div class="loading-dots"><span></span><span></span><span></span></div></div>
+      </div>
+      <button class="modal-close-btn" onclick="closeSummary()">完成</button>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
