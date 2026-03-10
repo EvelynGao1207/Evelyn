@@ -1,16 +1,16 @@
 require('dotenv').config();
 const express = require('express');
-const Anthropic = require('@anthropic-ai/sdk');
+const OpenAI = require('openai');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'gpt-4o';
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -72,27 +72,28 @@ app.post('/api/chat', async (req, res) => {
   res.setHeader('Connection', 'keep-alive');
 
   try {
-    const stream = anthropic.messages.stream({
+    // Build OpenAI messages format: system + conversation
+    const openaiMessages = [
+      { role: 'system', content: CHAT_SYSTEM_PROMPT(scenario || 'General conversation', subScenario || 'Free talk') },
+      ...(messages || [])
+    ];
+
+    const stream = await openai.chat.completions.create({
       model: MODEL,
+      messages: openaiMessages,
       max_tokens: 1024,
-      system: CHAT_SYSTEM_PROMPT(scenario || 'General conversation', subScenario || 'Free talk'),
-      messages: messages || [],
+      stream: true,
     });
 
-    stream.on('text', (text) => {
-      res.write(`data: ${JSON.stringify({ type: 'text', text })}\n\n`);
-    });
+    for await (const chunk of stream) {
+      const text = chunk.choices[0]?.delta?.content;
+      if (text) {
+        res.write(`data: ${JSON.stringify({ type: 'text', text })}\n\n`);
+      }
+    }
 
-    stream.on('end', () => {
-      res.write(`data: ${JSON.stringify({ type: 'done' })}\n\n`);
-      res.end();
-    });
-
-    stream.on('error', (error) => {
-      console.error('Stream error:', error);
-      res.write(`data: ${JSON.stringify({ type: 'error', error: error.message })}\n\n`);
-      res.end();
-    });
+    res.write(`data: ${JSON.stringify({ type: 'done' })}\n\n`);
+    res.end();
   } catch (error) {
     console.error('Chat error:', error);
     res.write(`data: ${JSON.stringify({ type: 'error', error: error.message })}\n\n`);
@@ -109,14 +110,16 @@ app.post('/api/translate', async (req, res) => {
     : 'Translate the following English text into Chinese (provide formal/casual/slang in Chinese):';
 
   try {
-    const response = await anthropic.messages.create({
+    const response = await openai.chat.completions.create({
       model: MODEL,
+      messages: [
+        { role: 'system', content: TRANSLATE_SYSTEM_PROMPT },
+        { role: 'user', content: `${directionHint}\n\n${text}` }
+      ],
       max_tokens: 1024,
-      system: TRANSLATE_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: `${directionHint}\n\n${text}` }],
     });
 
-    const content = response.content[0].text;
+    const content = response.choices[0].message.content;
     try {
       const parsed = JSON.parse(content);
       res.json({ code: 0, data: parsed });
@@ -138,17 +141,16 @@ app.post('/api/summarize', async (req, res) => {
     .join('\n');
 
   try {
-    const response = await anthropic.messages.create({
+    const response = await openai.chat.completions.create({
       model: MODEL,
+      messages: [
+        { role: 'system', content: SUMMARIZE_SYSTEM_PROMPT },
+        { role: 'user', content: `Here is the conversation from a "${scenario}" practice session:\n\n${conversationText}\n\nPlease provide the learning summary in JSON format.` }
+      ],
       max_tokens: 2048,
-      system: SUMMARIZE_SYSTEM_PROMPT,
-      messages: [{
-        role: 'user',
-        content: `Here is the conversation from a "${scenario}" practice session:\n\n${conversationText}\n\nPlease provide the learning summary in JSON format.`
-      }],
     });
 
-    const content = response.content[0].text;
+    const content = response.choices[0].message.content;
     try {
       const parsed = JSON.parse(content);
       res.json({ code: 0, data: parsed });
